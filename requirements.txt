@@ -8,6 +8,7 @@ python-dotenv>=1.0
 jupyterlab>=3.0
 ipywidgets>=8.0
 statsmodels
+streamlit
 
 
 #-e .
