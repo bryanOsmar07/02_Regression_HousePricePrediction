@@ -412,6 +412,37 @@ streamlit run app.py
 pause
 ```
 
+## 🐳 18. Ejecutar el proyecto con Docker
+
+Este repositorio incluye un `Dockerfile` para correr la app de Streamlit en un contenedor Docker.
+
+**Construir la imagen**
+
+Desde la raíz del proyecto:
+
+```bash
+docker build -t boston-housing-app .
+```
+
+**Ejecutar el contenedor**
+```bash
+docker run -it --rm -p 8501:8501 boston-housing-app
+```
+
+Luego abre en tu navegador:
+
+👉 **[http://localhost:8501](http://localhost:8501)**
+
+La imagen ya incluye:
+* app.py (app de Streamlit)
+* código del modelo en src/
+* artefactos entrenados en artifacts/:
+    * preprocessor.pkl
+    * model_xgb_tuned.pkl
+
+Por lo tanto, el contenedor está listo para realizar predicciones en tiempo real sin necesidad de reentrenar el modelo.
+
+
 ## 🏁 **18. Estado del proyecto**
 
 ✔ End-to-end pipeline
