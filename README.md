@@ -442,8 +442,31 @@ La imagen ya incluye:
 
 Por lo tanto, el contenedor está listo para realizar predicciones en tiempo real sin necesidad de reentrenar el modelo.
 
+## 🚀 **19. Deploy en Streamlit Cloud**
 
-## 🏁 **18. Estado del proyecto**
+Puedes probar la aplicación completamente funcional aquí:
+
+👉 **[App en Streamlit Cloud](https://02regressionhousepriceprediction-gnmwtdhmn7goegyahkaitc.streamlit.app/)**
+
+La app permite:
+
+* Ingresar variables del dataset Boston Housing
+* Ejecutar el pipeline completo del modelo
+* Ver el precio estimado
+* Inspeccionar los datos usados
+
+📌 **Cómo se despliega**
+
+El deploy está configurado en:
+* app.py (interfaz de Streamlit)
+* requirements.txt (dependencias)
+* .streamlit/config.toml (configuración del servidor)
+
+El modelo entrenado se carga desde:
+* artifacts/model_xgb_tuned.pkl
+* artifacts/preprocessor.pkl
+
+## 🏁 **20. Estado del proyecto**
 
 ✔ End-to-end pipeline
 
@@ -456,6 +479,8 @@ Por lo tanto, el contenedor está listo para realizar predicciones en tiempo rea
 ✔ App Streamlit totalmente funcional
 
 ✔ Ejecutable con un clic
+
+✔ Desplegado en Streamlit Cloud
 
 👨‍💻 Autor
 
