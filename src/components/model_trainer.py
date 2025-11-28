@@ -65,7 +65,8 @@ class ModelTrainer:
                 file_path=self.model_trainer_config.trained_model_file_path, obj=model
             )
             logging.info(
-                f"Modelo guardado correctamente en {self.model_trainer_config.trained_model_file_path}"
+                "Modelo guardado correctamente en %s",
+                self.model_trainer_config.trained_model_file_path,
             )
 
             return {"r2": r2, "rmse": rmse, "mae": mae}

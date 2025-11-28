@@ -87,17 +87,21 @@ if predict_button:
         # “Tarjeta” de resultado
         st.markdown(
             f"""
-            <div style="padding: 1.2rem; border-radius: 0.75rem; 
-                        border: 1px solid #e0e0e0; background-color: #f8f9fa;">
-                <h3 style="margin-bottom: 0.5rem;">💰 Precio estimado</h3>
-                <p style="font-size: 1.5rem; font-weight: bold; margin-bottom: 0.2rem;">
-                    {precio:.2f} <span style="font-size: 1.0rem;">miles de USD</span>
-                </p>
-                <p style="color: #6c757d; margin-bottom: 0;">
-                    El valor corresponde a la variable <code>medv</code> del dataset de Boston.
-                </p>
-            </div>
-            """,
+        <div style="padding: 1.2rem; border-radius: 0.75rem;
+                    border: 1px solid #e0e0e0;
+                    background-color: #f8f9fa;">
+        <h3 style="margin-bottom: 0.5rem;">💰 Precio estimado</h3>
+        <p style="font-size: 1.5rem; font-weight: bold;
+                    margin-bottom: 0.2rem;">
+            {precio:.2f}
+            <span style="font-size: 1.0rem;">miles de USD</span>
+        </p>
+        <p style="color: #6c757d; margin-bottom: 0;">
+            El valor corresponde a la variable <code>medv</code> del
+            dataset de Boston.
+        </p>
+        </div>
+        """,
             unsafe_allow_html=True,
         )
 
@@ -110,7 +114,8 @@ if predict_button:
 
 else:
     st.info(
-        "Usa la barra lateral para ingresar los datos y presiona **📈 Predecir precio**."
+        "Usa la barra lateral para ingresar los datos y presiona "
+        "**📈 Predecir precio**."
     )
 
 # ===========================
@@ -128,7 +133,7 @@ st.markdown(
     - `crim_log = log1p(crim)`
     - `contaminacion = nox * indus`
     - `zn_log = log1p(zn)`
-- Estandarización: `StandardScaler` sobre las 4 features finales  
+- Estandarización: `StandardScaler` sobre las 4 features finales
 - Métricas aproximadas en test:
     - **R² ≈ 0.79**
     - **RMSE ≈ 0.17 (en escala log)**

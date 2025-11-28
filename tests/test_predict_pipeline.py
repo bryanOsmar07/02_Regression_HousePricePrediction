@@ -1,7 +1,5 @@
 # tests/test_predict_pipeline.py
 
-import pandas as pd
-
 from src.pipeline.predict_pipeline import CustomData, PredictPipeline
 
 

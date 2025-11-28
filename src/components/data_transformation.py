@@ -64,8 +64,14 @@ class DataTransformation:
             X_test = test_feat[self.feature_cols]
             y_test = test_feat[self.target_col]
 
-            logging.info(f"Shape X_train antes de imputar/escalar: {X_train.shape}")
-            logging.info(f"Shape X_test antes de imputar/escalar: {X_test.shape}")
+            logging.info(
+                "Shape X_train antes de imputar/escalar: %s",
+                X_train.shape,
+            )
+            logging.info(
+                "Shape X_test antes de imputar/escalar: %s",
+                X_test.shape,
+            )
 
             # Manejo básico de nulos
             X_train = X_train.fillna(X_train.median())
@@ -89,7 +95,8 @@ class DataTransformation:
                 obj=scaler,
             )
             logging.info(
-                f"Preprocessor (scaler) guardado en {self.data_transformation_config.preprocessor_obj_file_path}"
+                "Preprocessor (scaler) guardado en %s",
+                self.data_transformation_config.preprocessor_obj_file_path,
             )
 
             # 6. Guardar lista de features
@@ -98,7 +105,8 @@ class DataTransformation:
                 obj=self.feature_cols,
             )
             logging.info(
-                f"Lista de features guardada en {self.data_transformation_config.features_obj_file_path}"
+                "Lista de features guardada en %s",
+                self.data_transformation_config.features_obj_file_path,
             )
 
             # 7. Unir X e y en un solo array para pasarlo al trainer

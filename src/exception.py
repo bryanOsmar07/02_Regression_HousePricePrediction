@@ -15,7 +15,11 @@ def error_message_detail(error, error_detail: sys):
     file_name = exc_tb.tb_frame.f_code.co_filename if exc_tb else "Unknown file"
     line_no = exc_tb.tb_lineno if exc_tb else -1
 
-    error_message = f"Error occurred in python script [{file_name}] at line [{line_no}] - message: [{error}]"
+    error_message = (
+        f"Error occurred in python script [{file_name}] at line [{line_no}] "
+        f"- message: [{error}]"
+    )
+
     return error_message
 
 
