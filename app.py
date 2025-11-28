@@ -85,25 +85,26 @@ if predict_button:
         precio = float(pred[0])
 
         # “Tarjeta” de resultado
-        st.markdown(
-            f"""
-        <div style="padding: 1.2rem; border-radius: 0.75rem;
-                    border: 1px solid #e0e0e0;
-                    background-color: #f8f9fa;">
-        <h3 style="margin-bottom: 0.5rem;">💰 Precio estimado</h3>
-        <p style="font-size: 1.5rem; font-weight: bold;
-                    margin-bottom: 0.2rem;">
-            {precio:.2f}
-            <span style="font-size: 1.0rem;">miles de USD</span>
-        </p>
-        <p style="color: #6c757d; margin-bottom: 0;">
-            El valor corresponde a la variable <code>medv</code> del
-            dataset de Boston.
-        </p>
-        </div>
-        """,
-            unsafe_allow_html=True,
-        )
+        card_html = f"""
+<div style="
+    padding: 1.2rem;
+    border-radius: 0.75rem;
+    border: 1px solid #e0e0e0;
+    background-color: #f8f9fa;
+    color: #212529;
+">
+  <h3 style="margin-bottom: 0.5rem;">💰 Precio estimado</h3>
+  <p style="font-size: 1.8rem; font-weight: bold; margin-bottom: 0.2rem;">
+    {precio:.2f}
+    <span style="font-size: 1.0rem;">miles de USD</span>
+  </p>
+  <p style="color: #6c757d; margin-bottom: 0;">
+    El valor corresponde a la variable <code>medv</code> del dataset de Boston.
+  </p>
+</div>
+"""
+
+        st.markdown(card_html, unsafe_allow_html=True)
 
         # Mostrar datos de entrada
         with st.expander("📄 Ver datos de entrada utilizados"):
