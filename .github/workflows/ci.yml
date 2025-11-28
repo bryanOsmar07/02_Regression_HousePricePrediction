@@ -25,6 +25,10 @@ jobs:
           pip install -r requirements.txt
           pip install -r requirements-dev.txt
 
+      - name: Install project as package
+        run: |
+          pip install -e .
+
       - name: Lint with isort
         run: isort . --check-only
 
