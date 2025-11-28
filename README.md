@@ -325,7 +325,106 @@ Esto imita un entorno real de trabajo con **CI**.
 
 ![CI](https://github.com/bryanOsmar07/02_Regression_HousePricePrediction/actions/workflows/ci.yml/badge.svg)
 
+📦 **Instalación de dependencias de desarrollo**
 
+```bash
+pip install -r requirements-dev.txt
+
+black
+flake8
+isort
+pytest
+pre-commit
+```
+
+🪝 **Pre-commit Hooks**
+
+Para garantizar un código limpio en cada commit:
+
+```bash
+pre-commit install
+```
+Ejecutar manualmente sobre todos los archivos:
+
+```bash
+pre-commit run --all-files
+```
+
+Estos hooks aseguran que no puedas hacer commit si el código no cumple estándares.
+
+
+## 🧪 **15. Pruebas unitarias (Pytest)**
+
+El proyecto incluye tests para:
+
+* Ingesta de datos
+* Transformación
+* Entrenamiento de modelo
+* Pipeline de predicción
+* Funciones utilitarias
+
+Para ejecutar:
+
+```bash
+pytest -v
+```
+
+## 🚀 **16. Integración continua (CI/CD) con GitHub Actions**
+
+Este repositorio usa un workflow en:
+
+```bash
+.github/workflows/ci.yml
+```
+
+El workflow se ejecuta automáticamente en cada push y pull request a main.
+
+¿Qué valida?
+
+✔ Instalación del proyecto
+
+✔ Linting (black, isort, flake8)
+
+✔ Pruebas unitarias con pytest
+
+✔ Garantiza que el proyecto no se rompa
+
+Badge (opcional)
+
+```md
+![CI](https://github.com/bryanOsmar07/02_Regression_HousePricePrediction/actions/workflows/ci.yml/badge.svg)
+```
+
+## 🖥️ **17. Ejecutar la app sin usar terminal**
+
+✔ Opción 1 — Archivo .bat (Windows)
+
+Crear run_app.bat:
+
+```bat
+@echo off
+cd /d %~dp0
+
+call venv\Scripts\activate
+
+streamlit run app.py
+
+pause
+```
+
+## 🏁 **18. Estado del proyecto**
+
+✔ End-to-end pipeline
+
+✔ Modelo XGBoost tunado
+
+✔ Linting / Testing / Pre-commit
+
+✔ CI/CD con GitHub Actions
+
+✔ App Streamlit totalmente funcional
+
+✔ Ejecutable con un clic
 
 👨‍💻 Autor
 
