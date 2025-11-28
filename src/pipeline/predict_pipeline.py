@@ -1,7 +1,8 @@
 # src/pipeline/predict_pipeline.py
 
-import sys
 import os
+import sys
+
 import numpy as np
 import pandas as pd
 
@@ -63,19 +64,22 @@ class CustomData:
     Clase de ayuda para construir un DataFrame a partir de inputs individuales.
     Ajusta los parámetros según las columnas originales de tu dataset.
     """
-    def __init__(self,
-                 crim: float,
-                 zn: float,
-                 indus: float,
-                 nox: float,
-                 rm: float,
-                 edad: float,
-                 dis: float,
-                 rad: int,
-                 impuesto: float,
-                 ptratio: float,
-                 negro: float,
-                 lstat: float):
+
+    def __init__(
+        self,
+        crim: float,
+        zn: float,
+        indus: float,
+        nox: float,
+        rm: float,
+        edad: float,
+        dis: float,
+        rad: int,
+        impuesto: float,
+        ptratio: float,
+        negro: float,
+        lstat: float,
+    ):
         self.crim = crim
         self.zn = zn
         self.indus = indus

@@ -1,15 +1,12 @@
 # app.py
 
 import streamlit as st
-import pandas as pd
 
-from src.pipeline.predict_pipeline import PredictPipeline, CustomData
+from src.pipeline.predict_pipeline import CustomData, PredictPipeline
 
 # Configuración básica de la página
 st.set_page_config(
-    page_title="Boston Housing - XGBoost",
-    page_icon="🏠",
-    layout="centered"
+    page_title="Boston Housing - XGBoost", page_icon="🏠", layout="centered"
 )
 
 # ===========================
@@ -43,10 +40,14 @@ indus = st.sidebar.number_input("indus (% acres no comerciales)", value=6.0, ste
 nox = st.sidebar.number_input("nox (Óxidos de nitrógeno)", value=0.5, step=0.01)
 rm = st.sidebar.number_input("rm (Nº habitaciones promedio)", value=6.0, step=0.1)
 edad = st.sidebar.number_input("edad (% viviendas antiguas)", value=60.0, step=1.0)
-dis = st.sidebar.number_input("dis (distancia a centros de empleo)", value=4.0, step=0.1)
+dis = st.sidebar.number_input(
+    "dis (distancia a centros de empleo)", value=4.0, step=0.1
+)
 rad = st.sidebar.number_input("rad (índice accesibilidad radial)", value=4, step=1)
 impuesto = st.sidebar.number_input("impuesto (tasa impositiva)", value=300.0, step=1.0)
-ptratio = st.sidebar.number_input("ptratio (ratio alumno/profesor)", value=18.0, step=0.1)
+ptratio = st.sidebar.number_input(
+    "ptratio (ratio alumno/profesor)", value=18.0, step=0.1
+)
 negro = st.sidebar.number_input("negro (índice población negra)", value=390.0, step=1.0)
 lstat = st.sidebar.number_input("lstat (% bajo estatus)", value=10.0, step=0.1)
 
@@ -72,7 +73,7 @@ if predict_button:
             impuesto=impuesto,
             ptratio=ptratio,
             negro=negro,
-            lstat=lstat
+            lstat=lstat,
         )
 
         df_input = input_data.get_data_as_dataframe()
@@ -97,7 +98,7 @@ if predict_button:
                 </p>
             </div>
             """,
-            unsafe_allow_html=True
+            unsafe_allow_html=True,
         )
 
         # Mostrar datos de entrada
@@ -108,7 +109,9 @@ if predict_button:
         st.error(f"Ocurrió un error durante la predicción: {e}")
 
 else:
-    st.info("Usa la barra lateral para ingresar los datos y presiona **📈 Predecir precio**.")
+    st.info(
+        "Usa la barra lateral para ingresar los datos y presiona **📈 Predecir precio**."
+    )
 
 # ===========================
 # Información del modelo

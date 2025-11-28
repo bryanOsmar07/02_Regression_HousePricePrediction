@@ -13,6 +13,6 @@ logging.basicConfig(
     format="[ %(asctime)s ] %(lineno)d %(name)s - %(levelname)s - %(message)s",
     handlers=[
         logging.FileHandler(LOG_FILE_PATH),
-        logging.StreamHandler()   # <--- log en consola
-    ]
+        logging.StreamHandler(),  # <--- log en consola
+    ],
 )

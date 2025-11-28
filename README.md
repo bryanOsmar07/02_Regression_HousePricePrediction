@@ -303,7 +303,32 @@ print(pred[0])
 * MLflow para tracking de experimentos
 * Validación de inputs con Pydantic
 
+
+## ✅ **14. Integración continua (CI) con GitHub Actions**
+
+Este repositorio incluye un workflow de GitHub Actions (`.github/workflows/ci.yml`) que ejecuta automáticamente:
+
+- Instalación de dependencias
+- Revisión de estilo de código:
+  - `isort` (orden de imports)
+  - `black` (formato de código)
+  - `flake8` (linting)
+- Tests unitarios con `pytest`
+
+El workflow se ejecuta en cada **push** y **pull request** a la rama `main`, verificando que:
+
+- El código siga estándares de calidad
+- Los tests pasen correctamente
+- El proyecto sea estable antes de mezclar cambios
+
+Esto imita un entorno real de trabajo con **CI**.
+
+![CI](https://github.com/bryanOsmar07/02_Regression_HousePricePrediction/actions/workflows/ci.yml/badge.svg)
+
+
+
 👨‍💻 Autor
 
 Proyecto desarrollado por Brayan Osmar Quispe Montoya
 Data Scientist
+2025

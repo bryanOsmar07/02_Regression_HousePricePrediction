@@ -2,13 +2,14 @@
 
 import os
 import sys
+from dataclasses import dataclass
+
 import numpy as np
 import pandas as pd
-from dataclasses import dataclass
 from sklearn.preprocessing import StandardScaler
 
-from src.logger import logging
 from src.exception import CustomException
+from src.logger import logging
 from src.utils import save_object
 
 
@@ -16,6 +17,7 @@ from src.utils import save_object
 class DataTransformationConfig:
     preprocessor_obj_file_path: str = os.path.join("artifacts", "preprocessor.pkl")
     features_obj_file_path: str = os.path.join("artifacts", "features.pkl")
+
 
 class DataTransformation:
     def __init__(self):
@@ -76,20 +78,28 @@ class DataTransformation:
             X_test_scaled = scaler.transform(X_test)
 
             # 5. Guardar scaler
-            os.makedirs(os.path.dirname(self.data_transformation_config.preprocessor_obj_file_path),
-                        exist_ok=True)
+            os.makedirs(
+                os.path.dirname(
+                    self.data_transformation_config.preprocessor_obj_file_path
+                ),
+                exist_ok=True,
+            )
             save_object(
                 file_path=self.data_transformation_config.preprocessor_obj_file_path,
-                obj=scaler
+                obj=scaler,
             )
-            logging.info(f"Preprocessor (scaler) guardado en {self.data_transformation_config.preprocessor_obj_file_path}")
+            logging.info(
+                f"Preprocessor (scaler) guardado en {self.data_transformation_config.preprocessor_obj_file_path}"
+            )
 
             # 6. Guardar lista de features
             save_object(
                 file_path=self.data_transformation_config.features_obj_file_path,
-                obj=self.feature_cols
+                obj=self.feature_cols,
             )
-            logging.info(f"Lista de features guardada en {self.data_transformation_config.features_obj_file_path}")
+            logging.info(
+                f"Lista de features guardada en {self.data_transformation_config.features_obj_file_path}"
+            )
 
             # 7. Unir X e y en un solo array para pasarlo al trainer
             train_arr = np.c_[X_train_scaled, y_train.to_numpy()]
@@ -102,9 +112,8 @@ class DataTransformation:
             return (
                 train_arr,
                 test_arr,
-                self.data_transformation_config.preprocessor_obj_file_path
+                self.data_transformation_config.preprocessor_obj_file_path,
             )
 
         except Exception as e:
             raise CustomException(e, sys)
-

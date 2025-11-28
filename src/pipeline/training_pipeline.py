@@ -1,6 +1,7 @@
 # src/pipeline/training_pipeline.py
 
 import sys
+
 from src.components.data_ingestion import DataIngestion
 from src.components.data_transformation import DataTransformation
 from src.components.model_trainer import ModelTrainer
@@ -19,13 +20,16 @@ def run_training_pipeline():
 
         # 2. Transformación
         transformer = DataTransformation()
-        train_arr, test_arr, _ = transformer.initiate_data_transformation(train_path, test_path)
-        logging.info(f"Shapes finales - train_arr: {train_arr.shape}, test_arr: {test_arr.shape}")
-
+        train_arr, test_arr, _ = transformer.initiate_data_transformation(
+            train_path, test_path
+        )
+        logging.info(
+            f"Shapes finales - train_arr: {train_arr.shape}, test_arr: {test_arr.shape}"
+        )
 
         # 3. Entrenamiento de modelo
         trainer = ModelTrainer()
-        metrics  = trainer.initiate_model_trainer(train_arr, test_arr)
+        metrics = trainer.initiate_model_trainer(train_arr, test_arr)
 
         logging.info(
             f"Training Pipeline finalizado. "

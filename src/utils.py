@@ -1,8 +1,9 @@
 # src/utils.py
 
 import os
-import sys
 import pickle
+import sys
+
 from src.exception import CustomException
 
 
@@ -21,7 +22,7 @@ def save_object(file_path: str, obj):
 
     except Exception as e:
         raise CustomException(e, sys)
-    
+
 
 def load_object(file_path: str):
     """
@@ -33,4 +34,3 @@ def load_object(file_path: str):
 
     except Exception as e:
         raise CustomException(e, sys)
-
